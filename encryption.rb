@@ -13,18 +13,19 @@ def encryption(input)
   end
 
   final_table = Array.new(rows_count, [])
+  row_holder = []
 
-  columns_place = 0
-  rows_count.times do
+  first_table[0].each do |x|
     rows_place = 0
-    final_table[columns_place] = first_table[columns_place][rows_place]
-    columns_place += 1
-    rows_count.times do 
-      # columns
-    end
+    row_holder << x
   end
 
-  puts final_table.inspect
+  final_table[2] = row_holder
+  final_table.each {|x| puts x.inspect}
+  puts row_holder.inspect
+
+  # puts row_holder.inspect
+
   # exit if inf_count == 100
 end
 input = "if man was meant to stay on the ground god would have given us roots"

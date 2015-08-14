@@ -16,13 +16,18 @@ def encryption(input)
   row_holder = []
 
   first_table[0].each do |x|
-    rows_place = 0
-    row_holder << x
+    final_table.each do |y|
+      y << x
+      break
+
+    end
   end
 
-  final_table[2] = row_holder
+
+  # final_table[2] = row_holder
   final_table.each {|x| puts x.inspect}
-  puts row_holder.inspect
+  # puts final_table[0][0].inspect
+  # puts final_table[0].inspect
 
   # puts row_holder.inspect
 

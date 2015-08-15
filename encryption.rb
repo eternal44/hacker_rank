@@ -1,85 +1,36 @@
-# def encryption(input)
-#   # inf_count = 0
-#   input = input.split(" ").join
-#   rows_count =  Math.sqrt(input.size).floor
-#   columns_count =  Math.sqrt(input.size).ceil
-#   # puts input.scan(/.{#{rows}}/)
-#   # puts input.scan(/.{#{rows}}/)
-#   first_table = []
-
-#   input = input.split("")
-#   while input.count > 0
-#     first_table << input.slice!(0, columns_count)
-#   end
-
-#   final_table = Array.new(rows_count, [])
-#   row_holder = []
-
-#   first_table[0].each do |x|
-#     final_table.each do |y|
-#       y << x
-#       break
-
-#     end
-#   end
-#   end
-
-  # final_table[2] = row_holder
-  # final_table.each {|x| puts x.inspect}
-  # puts final_table[0][0].inspect
-  # puts final_table[0].inspect
-
-  # puts row_holder.inspect
-
-  # exit if inf_count == 100
-# input = "if man was meant to stay on the ground god would have given us roots"
-
 def encryption(input)
-  # inf_count = 0
   input = input.split(" ").join
   rows_count =  Math.sqrt(input.size).floor
   columns_count =  Math.sqrt(input.size).ceil
-  first_table = []
+  staging_table = []
 
   input = input.split("")
   while input.count > 0
-    first_table << input.slice!(0, columns_count)
+    staging_table << input.slice!(0, columns_count)
   end
-  
 
-
-  columns_place = 0
   output_table = []
 
-  rows_place = -1
-  rows_count.times do
-    rows_place += 1
+  columns_place = 0
+  rows_place = 0
+  columns_count.times do
     columns_place = 0
     final_table = Array.new(rows_count, [])
 
     rows_count.times do
-      final_table[columns_place] = first_table[columns_place][rows_place]
+      final_table[columns_place] = staging_table[columns_place][rows_place]
       columns_place += 1
     end
+    rows_place += 1
     output_table << final_table
   end
-
-
-  # columns_place = 0
-  # rows_count.times do
-  #   final_table[columns_place] = first_table[columns_place][1]
-  #   columns_place += 1
-  # end
-
-    # output_table << final_table
-
-
-  # puts output_table[0].inspect
-  output_table.each {|x| puts x.inspect}
-  # puts output_table.inspect
-  # exit if inf_count == 100
+  output_line = ""
+  output_table.each do |x|
+    output_line += x.join + " "
+  end
+  puts output_line.chomp
 end
-input = "if man was meant to stay on the ground god would have given us roots"
+input = "chillout"
 encryption(input)
 
 

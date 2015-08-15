@@ -47,20 +47,31 @@ def encryption(input)
   end
   
 
-  final_table = Array.new(rows_count, [])
 
   columns_place = 0
-  rows_place = 0
   output_table = []
 
+  rows_place = -1
   rows_count.times do
+    rows_place += 1
+    columns_place = 0
+    final_table = Array.new(rows_count, [])
+
+    rows_count.times do
+      final_table[columns_place] = first_table[columns_place][rows_place]
+      columns_place += 1
+    end
     output_table << final_table
-    # rows_place += 1
   end
-  rows_count.times do
-    final_table[columns_place] = first_table[columns_place][rows_place]
-    columns_place += 1
-  end
+
+
+  # columns_place = 0
+  # rows_count.times do
+  #   final_table[columns_place] = first_table[columns_place][1]
+  #   columns_place += 1
+  # end
+
+    # output_table << final_table
 
 
   # puts output_table[0].inspect

@@ -52,13 +52,20 @@ def encryption(input)
   columns_place = 0
   rows_place = 0
   output_table = []
+
+  rows_count.times do
+    output_table << final_table
+    # rows_place += 1
+  end
   rows_count.times do
     final_table[columns_place] = first_table[columns_place][rows_place]
     columns_place += 1
-    # rows_place += 1
   end
 
-  puts final_table.inspect
+
+  # puts output_table[0].inspect
+  output_table.each {|x| puts x.inspect}
+  # puts output_table.inspect
   # exit if inf_count == 100
 end
 input = "if man was meant to stay on the ground god would have given us roots"
